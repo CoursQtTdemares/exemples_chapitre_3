@@ -13,23 +13,34 @@ class GoodExemple(QMainWindow):
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
 
-        layout_vertical = QVBoxLayout()
+        self.layout_vertical = QVBoxLayout()
 
         self.label_input = LabelInputWidget("Nom :")
         self.label_input2 = LabelInputWidget("Prénom :")
         self.label_input3 = LabelInputWidget("Email :")
 
-        button = QPushButton("Valider")
-        button.clicked.connect(self.on_button_clicked)
+        self.label_input4 = LabelInputWidget("Age :")
+        self.label_input5 = LabelInputWidget("Sexe :")
 
-        layout_vertical.addWidget(self.label_input)
-        layout_vertical.addWidget(self.label_input2)
-        layout_vertical.addWidget(self.label_input3)
-        layout_vertical.addWidget(button)
+        self.button = QPushButton("Valider")
+        self.button.clicked.connect(self.on_button_clicked)
 
-        central_widget.setLayout(layout_vertical)
+        self.assemble_widgets()
+
+        central_widget.setLayout(self.layout_vertical)
 
     def on_button_clicked(self) -> None:
         print("nom :", self.label_input.text())
         print("prénom :", self.label_input2.text())
         print("email :", self.label_input3.text())
+
+    def assemble_widgets(self) -> None:
+        self.layout_vertical.addWidget(self.label_input)
+        self.layout_vertical.addWidget(self.label_input2)
+        self.layout_vertical.addWidget(self.label_input3)
+
+        self.layout_vertical.addStretch()
+
+        self.layout_vertical.addWidget(self.label_input4)
+        self.layout_vertical.addWidget(self.label_input5)
+        self.layout_vertical.addWidget(self.button)
