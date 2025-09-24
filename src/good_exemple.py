@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QMainWindow, QPushButton, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QMainWindow, QPushButton, QSpinBox, QVBoxLayout, QWidget
 
 from src.label_input_widget import LabelInputWidget
 
@@ -19,7 +19,10 @@ class GoodExemple(QMainWindow):
         self.label_input2 = LabelInputWidget("Prénom :")
         self.label_input3 = LabelInputWidget("Email :")
 
-        self.label_input4 = LabelInputWidget("Age :")
+        self.age_spinbox = QSpinBox()
+        self.age_spinbox.setRange(0, 100)
+        self.age_spinbox.setValue(20)
+
         self.label_input5 = LabelInputWidget("Sexe :")
 
         self.button = QPushButton("Valider")
@@ -34,6 +37,8 @@ class GoodExemple(QMainWindow):
         print("prénom :", self.label_input2.text())
         print("email :", self.label_input3.text())
 
+        print("age :", self.age_spinbox.value())
+
     def assemble_widgets(self) -> None:
         self.layout_vertical.addWidget(self.label_input)
         self.layout_vertical.addWidget(self.label_input2)
@@ -41,6 +46,6 @@ class GoodExemple(QMainWindow):
 
         self.layout_vertical.addStretch()
 
-        self.layout_vertical.addWidget(self.label_input4)
+        self.layout_vertical.addWidget(self.age_spinbox)
         self.layout_vertical.addWidget(self.label_input5)
         self.layout_vertical.addWidget(self.button)
