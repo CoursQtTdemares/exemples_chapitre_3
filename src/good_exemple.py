@@ -15,10 +15,21 @@ class GoodExemple(QMainWindow):
 
         layout_vertical = QVBoxLayout()
 
-        label_input = LabelInputWidget()
-        button = QPushButton("Valider")
+        self.label_input = LabelInputWidget("Nom :")
+        self.label_input2 = LabelInputWidget("Prénom :")
+        self.label_input3 = LabelInputWidget("Email :")
 
-        layout_vertical.addWidget(label_input)
+        button = QPushButton("Valider")
+        button.clicked.connect(self.on_button_clicked)
+
+        layout_vertical.addWidget(self.label_input)
+        layout_vertical.addWidget(self.label_input2)
+        layout_vertical.addWidget(self.label_input3)
         layout_vertical.addWidget(button)
 
         central_widget.setLayout(layout_vertical)
+
+    def on_button_clicked(self) -> None:
+        print("nom :", self.label_input.text())
+        print("prénom :", self.label_input2.text())
+        print("email :", self.label_input3.text())
