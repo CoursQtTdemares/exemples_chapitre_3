@@ -2,14 +2,14 @@ import sys
 
 from PyQt6.QtWidgets import QApplication
 
-from src.good_exemple import GoodExemple
+from src.grid_example import GridLayoutDemo
 
 
 def main() -> int:
     """Entry point for exemples_chapitre_3."""
     app = QApplication(sys.argv)
 
-    window = GoodExemple()
+    window = GridLayoutDemo()
     window.show()
 
     return app.exec()
