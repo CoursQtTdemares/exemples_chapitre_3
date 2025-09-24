@@ -1,4 +1,6 @@
-from PyQt6.QtWidgets import QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QMainWindow, QPushButton, QVBoxLayout, QWidget
+
+from src.label_input_widget import LabelInputWidget
 
 
 class GoodExemple(QMainWindow):
@@ -13,17 +15,10 @@ class GoodExemple(QMainWindow):
 
         layout_vertical = QVBoxLayout()
 
-        # label + line_edit dans un layout horizontal
-        layout_horizontal = QHBoxLayout()
-        name_label = QLabel("Nom :")
-        name_line_edit = QLineEdit()
-        layout_horizontal.addWidget(name_label)
-        layout_horizontal.addWidget(name_line_edit)
-
-        # button
+        label_input = LabelInputWidget()
         button = QPushButton("Valider")
 
-        layout_vertical.addLayout(layout_horizontal)
+        layout_vertical.addWidget(label_input)
         layout_vertical.addWidget(button)
 
         central_widget.setLayout(layout_vertical)
